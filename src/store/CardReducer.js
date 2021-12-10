@@ -9,16 +9,16 @@ export const CardSlice = createSlice(
         },
         reducers:{
             addToCard(state, {payload}){
-                // let found = state.cardList.filter(item => item.id == payload.id)
-                // if(found.length){
-                //     alert('bor bunaqa product')
-                // }else{
+                let found = state.cardList.filter(item => item.id == payload.id)
+                if(found.length){
+                    alert('bor bunaqa product')
+                }else{
                     state.cardList = [...state.cardList, payload]
-                // }
-                // state.totalPrice = 0;
-                // state.cardList.forEach((item)=>{
-                //     state.totalPrice += item.orderCount * item.price
-                // })
+                }
+                state.totalPrice = 0;
+                state.cardList.forEach((item)=>{
+                    state.totalPrice += item.orderCount * item.price
+                })
             },
              removeFromCard(state, {payload}){
                 state.cardList = state.cardList.filter(item => item.id != payload.id)
